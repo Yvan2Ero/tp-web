@@ -1,0 +1,101 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: #edf8ff;
+}
+#titre{
+    height: 40px;
+    min-width: 100%;
+    width: 100%;
+    background: linear-gradient(#389488,#577b99);
+    color: #c5d1db;
+}
+#titre h1{
+    font-family: "sans-serif", Arial,Helvetica;
+    text-align: center;
+}
+#menu{
+    float: left;
+    margin: 0;
+    width: 100%;
+    display: block;
+    height: 60px;
+    background: linear-gradient(#1ab1cc,#0a665a);
+}
+#menu li a{
+    display: block;
+    float: right;
+    margin-right: 25px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    background: linear-gradient(#56b1a5,#366e67);
+    color: #f3f3f5;
+    box-shadow: 3px 3px 3px #fbfcfc;
+    text-decoration: none;
+    transition: 1s;
+}
+#menu li{
+    list-style-type: none;
+}
+#menu li a:hover{
+    transition: 1s;
+    background: #f3f3f5;
+    color: #56b1a5;
+    text-shadow: 3px 3px 3px #0202ff;
+    box-shadow: 3px 3px 3px #ececec;
+}
+
+.text_acceuil{
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+    border: 1px solid #0202ff;
+
+}
+
+.informations{
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 360px;
+    width: 400px;
+    background: #3b699e;
+    margin-top: 100px;
+    color: #b3b8e7;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #318fb4;
+    text-align: center;
+}
+.informations .avatar{
+    width: 140px;
+    height: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.informations .infos{
+    margin-top: 10px;
+    text-align: left;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* DESIGN DU TABLEAU DE NOTES
+*/
+.tableau-notes{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    width: 70%;
+    min-width: 70%;
+    background: #6873a8;
+}
+.tableau-notes table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+.tableau-notes table tr td{
+    color: #b7b7d1;
+    border: 1px solid black;
+}

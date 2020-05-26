@@ -1,0 +1,313 @@
+body{
+    margin: 0;
+    background-color: #f7f0fa;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* Design de l'entete */
+#menu{
+    height: 40px;
+    width: 100%;
+    background-color: #44b8b8;
+    border-bottom: 2px solid #3e9999;
+}
+.elt_menu{
+    float: right;
+    box-sizing: border-box;
+}
+.elt_menu a{
+    text-decoration: none;
+    color: #e7e1e9;
+    height: 40px;
+    background-color: #30acac;
+    padding: 5px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    display: block;
+    font-size: 20px;
+    transition: 1s;
+}
+.elt_menu a:hover{
+    background-color: #0e8080;
+    color: #ceeaf5;
+}
+.title h3{
+    margin: 10px 10px;
+    color: #44b8b8;
+    text-shadow: 3px 3px 3px #f6ffff;
+}
+.title a{
+    align-self: right;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.title{
+    margin: 0;
+    padding: 10px;
+    height: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e5e5e6;
+}
+.navigation{
+    margin-top: 5px;
+    background: #e7e1e9;
+    width: 100%;
+    color: #3dc2c2;
+}
+/* Design de l'acceuil */
+#cathegories-section{
+    max-width: 300px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.cathegorie{
+    height: 30px;
+    width: 180px;
+    background-color: #decee0;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.cathegorie a{
+    text-decoration: none;
+    margin: auto;
+}
+
+/* design du bloc des sujets */
+#subject_section,/*Pour le bloc des messages*/ #posts{
+    height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+#add_subject, #subject_section,/*Pour le bloc des messages*/ #posts{
+    margin-left: auto;
+    margin-right: auto;
+    width:  300px;
+}
+
+#add_subject h4{
+    text-align: center;
+}
+#subject_section ul{
+    list-style-type: none;
+}
+#subject_section li a{
+    width: auto;
+    height: 40px;
+    padding-top: 10px;
+    text-align: center;
+    background: #ebe0ea;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    color: #3e98ff;
+    transition: 1s;
+}
+#subject_section li a:hover{
+    background: #3e98ff;
+    color: #ebe0ea;
+    transition: 1s;
+}
+input, textarea{
+    margin-top: 10px;
+    border-radius: 5px;
+    display: block;
+    resize: none;
+    margin-left: auto;
+    margin-right: auto;
+    background: #d1e2e2;
+}
+input:focus, textarea:focus{
+    background: #ffffff;
+    box-shadow: 2px 2px 2px #0c0c0c;
+    border: none;
+}
+input[type=submit]{
+    background: #699ff0;
+    box-shadow: 2px 2px 2px #b3cbee;
+    padding: 10px;
+}
+
+input[type=submit]:hover{
+    background: #b3cbee;
+    box-shadow: 2px 2px 2px #699ff0;
+}
+textarea{
+    height: 60px;
+}
+/*Pour le bloc des messages*/
+#posts{
+    height: 400px;
+    background: #e0d7db;
+    padding: 10px;
+    width: 400px;
+}
+.post{
+    margin-bottom: 5px;
+    background: #c9b2bc;
+    border-radius: 5px;
+    padding: 10px;
+}
+.post em{
+    font-size: 10px;
+}
+/* Pour le formulaire de converstion */
+.input_c{
+}
+/* Message flah alert */
+#error_alert{
+    text-align-last: center;
+}
+
+/* Les formulaires d'inscription et de connections */
+#cnx_body{
+    width: 100%;
+    height: 100%;
+    background-image: url("./2928722.jpg");
+}
+.super-chat{
+    text-align: center;
+    font-size: 3em;
+    color: #1ba5e6;
+}
+#cnx_form_section{
+    box-sizing: border-box;
+    padding: 20px;
+    position: relative;
+    width: 300px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: auto;
+    border: 1px solid #0066ff;
+    border-radius: 5px;
+}
+#cnx_form_password, #cnx_form_user, #cnx_form button[type=submit],#new_email, #new_pseudo,#appliquer
+,#pseudo, #email, #password, #password2, #cnx_form_section button[type=submit]{
+    background: transparent;
+    display: block;
+    margin-top: 30px;
+    border: none;
+    width: 200px;
+    padding-left: 20px;
+    text-align: center;
+    color: #71caf3;
+    font-size: 16px;
+    border-bottom: 1px solid #0066ff;
+}
+#cnx_form button[type=submit], #cnx_form_section button[type=submit],#appliquer{
+    border-radius: 3px;
+    border: 1px solid #0066ff;
+    margin: 15px;
+    margin-top: 40px;
+    margin-left: 30px;
+    cursor: pointer;
+    transition: 1s;
+}
+#errors{
+    margin-top: 20px;
+    text-align-last: center;
+}
+#cnx_form button[type=submit]:hover,#appliquer:hover, #cnx_form_section button[type=submit]:hover{
+    background-color: #42a1c7;
+    color: white;
+    transition: 1s;
+}
+#cnx_form_section h3{
+    text-align: center;
+    color: #44b8b8;
+    font-weight: serif;
+    font-size: 2em;
+}
+#cnx_form_section a{
+    color: turquoise;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+#cnx_form_section a:hover{
+    text-shadow: 2px 2px 20px #c5fafa;
+}
+
+.fa-user, .fa-lock, .fa-envelope{
+    position: absolute;
+    left: 40px;
+    color: #48c2f3;
+    font-size: 30px;
+}
+.fa-envelope{
+    font-size: 25px;
+    top: 185px;
+}
+.fa-lock{
+    top: 183px;
+}
+#lock-inscription{
+    top: 242px;
+}
+#lock-inscription-confirm{
+    top: 304px;
+}
+/* Design de la partie profile */
+#section-profile{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding: 20px;
+    width: 70%;
+    background-color: #cdcde2;
+}
+#section-profile #avatar{
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+    height: 120px;
+}
+#section-profile span{
+    margin-left: 20px;
+}
+#section-profile span .fa{
+    left: 20px;
+}
+#section-profile span .fa-envelope{
+    top: 160px;
+}
+/* Design de l'input:file */
+input[type=file]{
+    display: none;
+}
+#avatar_{
+    margin-top: 10px;
+    color: #00818a;
+    width: 200px;
+    height: 30px;
+    border: 0.5px solid #0066ff;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    align-items: center;
+    padding: 3px;
+}
+#avatar_:hover{
+    background: #217fd8;
+    color: white;
+}
+#appliquer{
+    margin-left: auto;
+    margin-right: auto;
+}
