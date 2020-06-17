@@ -21,7 +21,7 @@
         {
             $q = $this->cnx->prepare("SELECT * FROM eleve
                                         WHERE matricule = :matricule AND mot_de_passe = :mdp");
-            $q->execute(['matricule' => $this->matricule, 'mdp' => $this->password]);
+            $q->execute(['matricule' => $this->matricule, 'mdp' => sha1($this->password)]);
 
             $rslt = $q->fetch();
 

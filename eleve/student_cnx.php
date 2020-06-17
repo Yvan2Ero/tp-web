@@ -5,7 +5,7 @@
 
     if(!empty_in_post(['user_matricule','user_password']))
     {
-        $new_eleve = new Eleve_Cnx(echaper($_POST['user_matricule']), echaper($_POST['user_password']));
+        $new_eleve = new Eleve_Cnx(e($_POST['user_matricule']), e($_POST['user_password']));
         $infos = $new_eleve->verifier();
         if($infos != -1)
         {

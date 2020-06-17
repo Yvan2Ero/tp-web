@@ -1,6 +1,6 @@
 <?php
 
-    require_once "./function/functions.php";
+    require_once "./../ressources/fonctions.php";
 
     class Register{
         private $pseudo;
@@ -15,7 +15,7 @@
             $this->email        = $email;
             $this->password     = $password;
             $this->password2    = $password2;
-            $this->cnx          = bdd();
+            $this->cnx          = getCnxReseau();
         }
 
         public function verify()
@@ -28,6 +28,10 @@
             if(mb_strlen($this->pseudo) <3 || mb_strlen($this->pseudo) >15)
             {
                 return "Le pseudo doit contenir entre 3 et 15 caracteres";
+            }
+            if(exists_pseudo($this->pseudo))
+            {
+              return "Le pseudo que vous avez entre est deja utilise";
             }
             if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
             {
@@ -63,10 +67,10 @@
         {
             if($this->save())
             {
-                $q = $this->cnx->query("SELECT * FROM users_reseau 
+                $q = $this->cnx->query("SELECT * FROM users_reseau
                                     WHERE user_pseudo = '$this->pseudo'
                                     AND user_password = '$this->password'")->fetch();
-                
+
                 $_SESSION['user_id'] = $q["user_id"];
                 $_SESSION['user_pseudo'] = $q["user_pseudo"];
                 $_SESSION['user_email'] = $q["user_email"];

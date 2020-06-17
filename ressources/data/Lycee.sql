@@ -6,6 +6,20 @@ DROP DATABASE IF EXISTS Lycee;
 CREATE DATABASE Lycee CHARACTER SET 'utf8';
 USE Lycee;
 -- **********************************************************************************
+-- Creation de la table des supers-administrateurs
+
+CREATE TABLE superadmin(
+
+    admin_id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    admin_user_name   VARCHAR(100)  NOT NULL,
+    admin_password_1  VARCHAR(1000)  NOT NULL,
+    admin_password_2  VARCHAR(1000)  NOT NULL
+)engine=InnoDB;
+-- insertion du super-admin
+
+INSERT INTO superadmin(admin_user_name, admin_password_1, admin_password_2)
+VALUES('principale1','principale1_pwd1','principale1_pwd2');
+
 -- Creation de la table proffesseur
 
 CREATE TABLE professeur(
@@ -14,43 +28,43 @@ CREATE TABLE professeur(
     prenom_prof      VARCHAR(100),
     email_prof       VARCHAR(100),
     prof_login       VARCHAR(100),
-    prof_password    VARCHAR(100),
+    prof_password    VARCHAR(1000),
     id_prof          INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 
           )engine=InnoDB;
 DESCRIBE professeur;
 
 -- AJOUT DES PROFESSEURS
-INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES 
-('Temgoua','Jean','jean@email.com','Jean_user','jean_pwd');
 INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
- ('Kenfack','Etienne','etiene@gmail.com','Erienne_user', 'etienne_pwd');
+('Temgoua','Jean','jean@email.com','Jean_user',SHA1('jean_pwd'));
+INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
+ ('Kenfack','Etienne','etiene@gmail.com','Erienne_user', SHA1('etienne_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Manfo','Roger', 'roger@email.com', 'Roger_user', 'roger_pwd');
+('Manfo','Roger', 'roger@email.com', 'Roger_user', SHA1('roger_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Kasso','Robert', 'robert@email.com', 'Robert_user', 'robert_pwd');
+('Kasso','Robert', 'robert@email.com', 'Robert_user', SHA1('robert_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Tennesso','Douglasse','douglasse@email.com', 'Douglasse_user', 'douglasse_pwd');
+('Tennesso','Douglasse','douglasse@email.com', 'Douglasse_user', SHA1('douglasse_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Tchwang','Appolinaire','appolinaire@email.com', 'Appolinaire', 'appolinaire');
+('Tchwang','Appolinaire','appolinaire@email.com', 'Appolinaire', SHA1('appolinaire'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Kwasso','Rene','rene@email.com', 'Rene_user', 'Rene_pwd');
+('Kwasso','Rene','rene@email.com', 'Rene_user', SHA1('Rene_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Temsuate','Joseph','joseph@email.com', 'Joseph','joseph_pwd');
+('Temsuate','Joseph','joseph@email.com', 'Joseph', SHA1('joseph_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Azangue','Florent','florent@email.com', 'Florent_user', 'florent_pwd');
+('Azangue','Florent','florent@email.com', 'Florent_user', SHA1('florent_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
- ('Janze','Laurine','laurine@email.com', 'Laurine_user', 'laurine_pwd');
+ ('Janze','Laurine','laurine@email.com', 'Laurine_user', SHA1('laurine_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Momo','Joceline','joceline@email.com', 'Joceline_user', 'joceline_pwd');
+('Momo','Joceline','joceline@email.com', 'Joceline_user', SHA1('joceline_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
- ('Temeze','Madelene','madelene@email.com', 'Madelene_user', 'madelene_pwd');
+ ('Temeze','Madelene','madelene@email.com', 'Madelene_user', SHA1('madelene_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
- ('Kemze', 'Jessica', 'jessica@email.com', 'Jessica_user', 'jessica_pwd');
+ ('Kemze', 'Jessica', 'jessica@email.com', 'Jessica_user', SHA1('jessica_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
- ('Tazoh','Patty','patty@email.com', 'Patty_user', 'patty_pwd');
+ ('Tazoh','Patty','patty@email.com', 'Patty_user', SHA1('patty_pwd'));
  INSERT INTO professeur(nom_prof, prenom_prof, email_prof, prof_login, prof_password) VALUES
-('Tadmon','Eric','eric@email.com','Eric_user','eric_pwd');
+('Tadmon','Eric','eric@email.com','Eric_user', SHA1('eric_pwd'));
 -- **********************************************************************************
 -- Creation de la table classe
 
@@ -99,10 +113,9 @@ DESCRIBE eleve;
 
  -- AJOUT DES ELEVES
 INSERT INTO eleve (nom_eleve,prenom_eleve, matricule, date_naiss, lieu_naiss,sexe, nom_classe, mot_de_passe)
-VALUES ('Tasso','Loic','eleve1','2000-01-05','Dschang','Masculin','Tle C', 'tasso'),
-       ('Kana','Guy','eleve2','2003-05-30','Doumbouo','Masculin','1ere D', 'kana'),
-       ('Kapso','Rodrigue','eleve3','2000-09-22','Doumbouo','Masculin','6eme', 'kapso'),
-       ('Koumbo','Laura','eleve4','1997-05-10','Batonga','Feminin','1ere D', 'koumbo');
+VALUES ('Tasso','Loic','eleve1','2000-01-05','Dschang','Masculin','Tle C', SHA1('tasso_pwd')),
+       ('Kana','Guy','eleve2','2003-05-30','Doumbouo','Masculin','1ere D', SHA1('kana_pwd')),
+       ('Koumbo','Laura','eleve4','1997-05-10','Batonga','Feminin','1ere D', SHA1('koumbo'));
 
 -- **********************************************************************************
 -- Creation de la table cours

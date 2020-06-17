@@ -20,7 +20,7 @@
         public function getInfos()
         {
             $q = $this->cnx->prepare("SELECT * FROM professeur
-                                      WHERE prof_login = :log AND prof_password = :pwd");
+                                      WHERE prof_login = :log AND prof_password = SHA1(:pwd)");
             $rslt = $q->execute([
                 'log' => $this->nom,
                 'pwd' => $this->password

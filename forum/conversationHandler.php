@@ -52,7 +52,7 @@
     //FONCTION DE RESTITUTION DES MESSAGES
     function readMessages()
     {       
-            $posts = bdd()->prepare("SELECT * FROM posts_reseau WHERE sujet_nom = :sub");
+            $posts = getCnxReseau()->prepare("SELECT * FROM posts_reseau WHERE sujet_nom = :sub");
             $posts->execute(['sub'=>$_SESSION['actual_subject']]);
             $posts = $posts->fetchAll();
             echo json_encode($posts);

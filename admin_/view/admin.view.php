@@ -1,12 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <title>page admin</title>
-    </head>
-    <body class="container-fluid">
+<?php require"./view/header.php"; ?>
         <div >
             <h1>ESPACE PERSONNEL DE MISE EN LIGNE DES NOTES</h1>
             <?if(!empty($erreur)):?>
@@ -39,13 +31,13 @@
         <? if(!empty($_SESSION["eleves"])): ?>
             <div class="container-fluid">
                     <?if(!empty($sucess)):?>
-                    <div class="row"><span class="alert btn-success"><?=$sucess?></span></div>
+                    <div class="row"><div class="alert btn-success"><?=$sucess?></div></div>
                     <?endif?>
                 <div class="row">
                     <?if(!empty($erreur_note)):?>
-                    <span class="alert btn-danger"><?=$erreur_note?></span>
+                    <div class="alert btn-danger"><?=$erreur_note?></div>
                     <?endif?><br><br>
-                    <div class="col-md-10">
+                    <div class="col-md-10" style="height: 300px;overflow: hidden; overflow-y:scroll;">
                         <table class="table table-responsive-xl table-responsive-sm table-primary">
                             <tr>
                                 <th>Nom</th>
@@ -65,7 +57,7 @@
                                         <select name="nom_cours" id="">
                                             <? foreach($_SESSION['cours'] as $cour): ?>
                                                 <option value="<?=$cour['nom_cours']?>" ><?=$cour['nom_cours']?></option>
-                                            <? endforeach ?>    
+                                            <? endforeach ?>
                                         </select>
                                     </td>
                                     <td><input type="text" class="form form-group" name="note" value="<?=$note_pr??null?>" ></td>
@@ -88,5 +80,4 @@
         <input type="hidden" id="actual_cours" value="<?php if(prof_autorisation())echo$_SESSION['cours_sel']; else echo "";?>">
         <input type="hidden" id="actual_classe"value="<?=$_SESSION['classe']??null?>">
         <script src="./js/request_note.js"></script>
-</body>
-</html>
+<?php require "./view/footer.php" ?>

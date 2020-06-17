@@ -9,7 +9,7 @@
 <body>
     <header>
         <div id="menu">
-        <?if(empty($_SESSION)):?>
+        <?if(empty($_SESSION["user_id"])):?>
             <div class="elt_menu"><a href="connection.php">Connection</a></div>
             <div class="elt_menu"><a href="register.php">Inscription</a></div>
         <?else:?>
@@ -20,7 +20,7 @@
         </div>
         <div class="title">
             <h3>SUPER-CHAT+FORUM</h3>
-            <?if(!empty($_SESSION)):?>
+            <?if(!empty($_SESSION["user_id"])):?>
                 <a href="deconnexion.php">se deconnecter</a>
             <?endif;?>
         </div>

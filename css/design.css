@@ -87,7 +87,7 @@ MENU
   }
   .search-section input[type=search]:hover,
   .search-section input[type=search]:focus{
-    box-shadow: 2px 2px 3px #98b0cf;      
+    box-shadow: 2px 2px 3px #98b0cf;
   }
   .search-section input[type=submit]{
       box-shadow: 2px 2px 3px #98b0cf;
@@ -218,6 +218,7 @@ FORMULAIRES
     background-position: 20 20;
     background-color: #4b91e7;
     border: 1px solid #0d1924;
+    
 }
 #cnx_form_section form button:hover,
  #ins_form_section form button:hover{

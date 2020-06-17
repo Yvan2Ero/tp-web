@@ -3,8 +3,8 @@
 require "ressources/fonctions.php";
 if(!empty_in_post(["sug_email","sug_msg"]))
 {
-    $email = echaper($_POST["sug_email"]);
-    $msg = echaper($_POST["sug_msg"]);
+    $email = e($_POST["sug_email"]);
+    $msg = e($_POST["sug_msg"]);
     if(filter_var($email, FILTER_VALIDATE_EMAIL))
     {
         $to = MON_EMAIL;

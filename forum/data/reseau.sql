@@ -6,7 +6,7 @@ CREATE DATABASE Forum CHARACTER SET 'utf8';
 USE Forum;
 -- CREATION DE LA TABLE DES UTLISATEURS CONNECTES
 CREATE TABLE users_reseau(
-                            user_avatar     VARCHAR(100),
+                            user_avatar     VARCHAR(100) DEFAULT 'default.svg',
                             user_pseudo     VARCHAR(100) NOT NULL UNIQUE,
                             user_email      VARCHAR(100) NOT NULL UNIQUE,
                             user_id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -42,6 +42,7 @@ CREATE TABLE sujets_reseau(
 
 CREATE TABLE posts_reseau(
                             id_post         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                            avatar_autor    VARCHAR(100) ,
                             pseudo_autor    VARCHAR(100) NOT NULL,
                             sujet_nom       VARCHAR(100) NOT NULL,
                             contenu_post    TEXT NOT NULL,

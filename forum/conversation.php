@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "./function/functions.php";
+require_once "./../ressources/fonctions.php";
     //VERIFICATION DU SUJET PASSEE
     $sub = e($_POST['subject']??$_GET['subject']);
     $flag = false;

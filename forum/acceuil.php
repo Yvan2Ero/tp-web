@@ -3,8 +3,8 @@ session_start();
     if(empty($_SESSION['user_id']))
     {header("Location:index.php");}
 
-    require_once "./function/functions.php";
-    $cat = bdd()->query("SELECT * FROM categorie_resau");
+    require_once "./../ressources/fonctions.php";
+    $cat = getCnxReseau()->query("SELECT * FROM categorie_resau");
     if($cat)
     {
         $_SESSION['cat'] = [];

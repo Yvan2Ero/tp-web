@@ -32,7 +32,7 @@
         echo json_encode(["erreur"=>"cathegorie non existant!"]);
     }else
     {
-        $q = bdd()->query("SELECT * FROM sujets_reseau
+        $q = getCnxReseau()->query("SELECT * FROM sujets_reseau
                             WHERE  	nom_categorie = '$cat'");
         $_SESSION['sujets'] = $q->fetchAll();
     }

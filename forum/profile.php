@@ -31,7 +31,7 @@
                     $q = getCnxReseau()->prepare("UPDATE users_reseau 
                                                   SET user_avatar = :avatar WHERE user_id = :id");
                     if(!$q->execute([
-                        'avatar' => echaper($avatar),
+                        'avatar' => e($avatar),
                         'id'     => $id
                     ])){$erreur = "Erreur lors de l'enregistrement de l'image!";} 
 
@@ -46,7 +46,7 @@
         }
         if(!empty_in_post(["new_pseudo"]))
         {
-            $pseudo = echaper($_POST["new_pseudo"]);
+            $pseudo = e($_POST["new_pseudo"]);
             if(mb_strlen(trim($pseudo))>=3 && mb_strlen(trim($pseudo))<=20)
             {
                 $q = getCnxReseau()->prepare("UPDATE users_reseau SET user_pseudo = :pseudo WHERE user_id = :id");
@@ -67,7 +67,7 @@
         }
         if(!empty_in_post(["new_email"]))
         {
-            $email = echaper($_POST["new_email"]);
+            $email = e($_POST["new_email"]);
             if(filter_var($email, FILTER_VALIDATE_EMAIL))
             {
                 $q = getCnxReseau()->prepare("UPDATE users_reseau SET user_email = :email WHERE user_id = :id");

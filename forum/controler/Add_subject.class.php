@@ -1,5 +1,5 @@
 <?php
-require_once "./function/functions.php";
+require_once "./../ressources/fonctions.php";
 
     class Add_subject{
 
@@ -18,7 +18,7 @@ require_once "./function/functions.php";
             $this->title = $title;
             $this->content = $content;
             $this->cathegorie = $cathegorie;
-            $this->cnx = bdd();
+            $this->cnx = getCnxReseau();
             $this->autor = $autor;
         }
 
@@ -50,8 +50,8 @@ require_once "./function/functions.php";
         }
         public function sauvegarder()
         {
-            $requette1 = 'INSERT INTO posts_reseau (pseudo_autor, sujet_nom, contenu_post, date_post)
-            VALUES(:pseudo, :nom, :contenu, NOW())';
+            $requette1 = 'INSERT INTO posts_reseau (pseudo_autor,avatar_autor, sujet_nom, contenu_post, date_post)
+            VALUES(:pseudo, :avatar, :nom, :contenu, NOW())';
             $requette1 = $this->cnx->prepare($requette1);
 
             $requette2 = 'INSERT INTO sujets_reseau (nom_categorie, sujet_nom)
@@ -59,6 +59,7 @@ require_once "./function/functions.php";
             $requette2 = $this->cnx->prepare($requette2);
             $rps1 = $requette1->execute([
                 'pseudo' => $this->autor,
+                'avatar' => $_SESSION["user_avatar"],
                 'nom' => $this->title,
                 'contenu' => $this->content
             ]) ;
@@ -67,11 +68,10 @@ require_once "./function/functions.php";
                 'nom_sujet' =>$this->title
             ]) ;
 
-            $q = bdd()->query("SELECT * FROM sujets_reseau
+            $q = getCnxReseau()->query("SELECT * FROM sujets_reseau
             WHERE  	nom_categorie = '$this->cathegorie'");
             $_SESSION['sujets'] = $q->fetchAll();
             return ($rps2 && $rps1);
         }
 
     }
-

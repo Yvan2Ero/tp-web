@@ -8,10 +8,10 @@ session_start();
     //SI ON A SELECTIONNE UN CLASSE ET UN TRIMESTRE, ON SELECTIONNE TOUS LES ELEVES DE LA CLASSE
     //ET LES MATIERES
     if(!empty_in_post(["classe","trimestre"]))
-    {   
+    {
 
         $_SESSION["eleves"] = []; //PAS D'ELEVES PAR DEFAUT
-        $classe = echaper($_POST["classe"]);
+        $classe = e($_POST["classe"]);
         if(in_array($classe,$_SESSION['classes_enseignes']))
         {
             $q  =  getCnxEleve()->query("SELECT * FROM eleve WHERE nom_classe = '$classe'");
@@ -21,8 +21,11 @@ session_start();
             $_SESSION['classe'] = $classe;//La classe
             $_SESSION['cours'] = $qc->fetchAll();//Les cours dispensees
             $_SESSION["eleves"] = $q->fetchAll();//Les eleves
-            $trim  = (int) echaper($_POST["trimestre"]);//Le trimestre
+            $trim  = (int) e($_POST["trimestre"]);//Le trimestre
             $_SESSION["trimestre"] = $trim;
+
+            $q->closeCursor();
+            $qc->closeCursor();
         }
         else{
             $_SESSION["eleves"] = [];
@@ -33,10 +36,10 @@ session_start();
     //SI ON ENREGISTRE LA NOTE DE L'ELEVE SI L'ON DISPOSE DU NECESSAIRE
     if(!empty_in_get(["id_eleve","nom_cours","note"]))
     {
-        $id =(int) echaper($_GET["id_eleve"]);
-        $matiere = echaper($_GET["nom_cours"]);
+        $id =(int) e($_GET["id_eleve"]);
+        $matiere = e($_GET["nom_cours"]);
         $_SESSION['cours_sel'] = $matiere;
-        $note =(float) str_replace(',','.',echaper($_GET["note"]));
+        $note =(float) str_replace(',','.',e($_GET["note"]));
         //SI LE PROFF ENSEIGNE LA MATIERE SELECTIONNEE
         if(prof_autorisation())
         {
@@ -66,4 +69,3 @@ session_start();
 
     require "./view/admin.view.php";
 ?>
-

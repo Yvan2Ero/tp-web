@@ -1,22 +1,22 @@
 <?php
 
-require_once "./function/functions.php";
+require_once "./../ressources/fonctions.php";
 class Cnx
 {
     private $pseudo;
     private $password;
     private $cnx;
-    
+
     public function __construct($pseudo, $password)
     {
         $this->pseudo = $pseudo;
         $this->password = $password;
-        $this->cnx = bdd();
+        $this->cnx = getCnxReseau();
     }
 
     public function verifier()
     {
-        $q = $this->cnx->query("SELECT * FROM users_reseau 
+        $q = $this->cnx->query("SELECT * FROM users_reseau
                             WHERE user_pseudo = '$this->pseudo'
                             AND user_password = '$this->password'");
         return $q->fetch();

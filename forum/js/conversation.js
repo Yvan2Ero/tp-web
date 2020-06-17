@@ -9,20 +9,23 @@ function readMessage()
     data.append('subject',sub.value);
     xhr.onload = function()
     {
+        console.log(this.responseText);
         const response = JSON.parse(this.responseText);
         var html = "";
         for(var i=0; i<response.length; i++)
         {
             html += '\
                 <div class="post">\
+                    <span id="autor_avatar"><img src="./membres/avatars/'+response[i].avatar_autor+'" alt="autor" width="32px" heigth="32px"/></span>\
                     <strong>'+response[i].pseudo_autor+':</strong>\
                     <p>'+response[i].contenu_post+'</p>\
                     <em>'+(response[i].date_post).substring(0,16)+'</em>\
                 </div>\
             ';
         }
+        console.log(html);
         var posts = document.getElementById("posts");
-        posts.innerHTML = html
+        posts.innerHTML = html;
         posts.scrollTop = posts.scrollHeight;
     }
 
@@ -89,4 +92,4 @@ document.getElementById("form-post").addEventListener("submit", postMessage);
 
 readMessage();
 
-const i = window.setInterval(readMessage, 3000);
+const i = window.setInterval(readMessage, 30000);
